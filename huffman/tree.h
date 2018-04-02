@@ -38,23 +38,6 @@ void getCodes(p_TreeNode root, p_CodeTable table[256]);
 bool storeTree(p_TreeNode root, unsigned char * result, int * skip);
 bool restoreTree(p_TreeNode * root, const unsigned char * in, int * skip);
 
-struct TreeNodeArray {
-	int size;
-	int leftsize;
-	int rightsize;
-	p_TreeNode * nodes;
-	TreeNodeArray * leftnodes;
-	TreeNodeArray * rightnodes;
-};
-
-typedef TreeNodeArray *  p_TreeNodeArray;
-
-p_TreeNodeArray createArray(int size, p_TreeNode * nodes);
-p_TreeNode buildTreeShannon(int * frequency, unsigned char * data, int n, p_TreeNodeArray * nArray);
-void splitArray(p_TreeNodeArray narray);
-void deleteTree(p_TreeNodeArray root);
-
-
 struct nodeComparatorMIN {
 	bool operator()(const p_TreeNode  &i, const p_TreeNode  &j) {
 		return i->frequency > j->frequency;
